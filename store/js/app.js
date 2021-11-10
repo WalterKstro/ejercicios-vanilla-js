@@ -1,0 +1,15 @@
+import {deleteProduct,cleanStore} from './delete/moduleDelete.js';
+import addProduct from './add/moduleAdd.js';
+
+const buttonCleanStore = document.querySelector('#vaciar-carrito');
+const gridOfCourses = document.querySelector('#list-courses');
+const bodyTable = document.querySelector('.tbody');
+
+
+function loadListeners() {
+    gridOfCourses.addEventListener('click', addProduct);
+    bodyTable.addEventListener('click', deleteProduct);
+    buttonCleanStore.addEventListener('click', cleanStore);
+}
+
+loadListeners();
