@@ -1,3 +1,5 @@
+import calculateTotal from '../calculate/calculateTotal.js';
+
 const bodyTable = document.querySelector('.tbody');
 
 /**
@@ -17,6 +19,8 @@ const bodyTable = document.querySelector('.tbody');
         }
 
     }
+    const rows = Array.from(bodyTable.children);
+    calculateTotal(rows);
 }
 
 
@@ -38,6 +42,8 @@ const bodyTable = document.querySelector('.tbody');
     while (bodyTable.firstChild) {
         bodyTable.removeChild(bodyTable.firstChild);
     }
+    const rows = Array.from(bodyTable.children);
+    calculateTotal(rows);
 }
 
 

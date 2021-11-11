@@ -1,5 +1,8 @@
 
+import calculateTotal from '../calculate/calculateTotal.js';
+
 const listOfProducts = document.querySelector('#list-card tbody');
+const bodyTable = document.querySelector('.tbody');
 
 /**
  * Function to add product to the store
@@ -19,8 +22,9 @@ const listOfProducts = document.querySelector('#list-card tbody');
         }
 
     }
+    const rows = Array.from(bodyTable.children);
+    calculateTotal(rows);
 }
-
 
 /**
  * Function create row of the table
