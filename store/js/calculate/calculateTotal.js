@@ -3,9 +3,8 @@
  * @param {*} rows 
  */
 function calculateTotal(rows) {
-    const tagTotal = document.querySelector('#total');
     const total = calculateSubTotal(rows).reduce((previousSubtotal, total) => previousSubtotal + total,0);
-    tagTotal.textContent = `$ ${total}`;
+    return total;
 }
 
 

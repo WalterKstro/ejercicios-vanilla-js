@@ -1,4 +1,4 @@
-import calculateTotal from '../calculate/calculateTotal.js';
+import {isEmptyShopingCar, showMessageTotal,showMessageOfEmptyShopingCar} from '../helpers/helpers.js';
 
 const bodyTable = document.querySelector('.tbody');
 
@@ -8,19 +8,18 @@ const bodyTable = document.querySelector('.tbody');
  */
  function deleteProduct({ target }) {
     const isClass = target.classList.contains('eliminar-carrito');
-    const row = target.parentElement.parentElement;
+    const rowTable = target.parentElement.parentElement;
     if (isClass) {
-        if (isOnlyOneProduct(row)) {
-            row.remove();
+        if (isOnlyOneProduct(rowTable)) {
+            rowTable.remove();
         } else {
-
-            const [, , , quantity] = row.children;
+            const [, , , quantity] = rowTable.children;
             quantity.textContent = parseInt(quantity.textContent) - 1;
         }
 
     }
-    const rows = Array.from(bodyTable.children);
-    calculateTotal(rows);
+    const rowsOfTable = Array.from(bodyTable.children);
+    isEmptyShopingCar(rowsOfTable) ? showMessageOfEmptyShopingCar() : showMessageTotal();
 }
 
 
@@ -42,8 +41,7 @@ const bodyTable = document.querySelector('.tbody');
     while (bodyTable.firstChild) {
         bodyTable.removeChild(bodyTable.firstChild);
     }
-    const rows = Array.from(bodyTable.children);
-    calculateTotal(rows);
+    showMessageOfEmptyShopingCar();
 }
 
 

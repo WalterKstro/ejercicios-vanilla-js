@@ -1,5 +1,5 @@
+import {showMessageTotal} from '../helpers/helpers.js';
 
-import calculateTotal from '../calculate/calculateTotal.js';
 
 const listOfProducts = document.querySelector('#list-card tbody');
 const bodyTable = document.querySelector('.tbody');
@@ -22,8 +22,8 @@ const bodyTable = document.querySelector('.tbody');
         }
 
     }
-    const rows = Array.from(bodyTable.children);
-    calculateTotal(rows);
+    
+    showMessageTotal();
 }
 
 /**
@@ -79,8 +79,7 @@ const bodyTable = document.querySelector('.tbody');
     let isNewProduct = true;
 
     arrayProducttList.forEach(rowProduct => {
-        const [, title, ,] = rowProduct.children;
-
+        const [, title, ,] = rowProduct.children;        
         if (title.textContent.localeCompare(product.title) === 0) {
             isNewProduct = false;
         }
