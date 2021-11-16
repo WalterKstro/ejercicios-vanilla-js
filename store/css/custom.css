@@ -196,3 +196,26 @@ text-decoration: none;
     margin: 0;
     height: 24px;
 }
+
+.shoping::before {
+    content: attr(title);
+    display: block;
+    top: -15%;
+    left: -5%;
+    width: 20px;
+    height: 20px;
+    background-color: #741d51;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50px;
+    position: absolute;
+}
+.msg_total{
+    text-align: center;
+    font-weight: bold;
+    background-color: rgb(43, 145, 43);
+    color: white;
+    display: block;
+    padding: 5px 0;
+}

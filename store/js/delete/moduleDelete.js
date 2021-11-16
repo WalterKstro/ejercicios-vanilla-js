@@ -1,6 +1,7 @@
 import {isEmptyShopingCar, showMessageTotal,showMessageOfEmptyShopingCar} from '../helpers/helpers.js';
 
 const bodyTable = document.querySelector('.tbody');
+const notificacion = document.querySelector('.shoping');        
 
 /**
  * Delete product from the store
@@ -20,6 +21,9 @@ const bodyTable = document.querySelector('.tbody');
     }
     const rowsOfTable = Array.from(bodyTable.children);
     isEmptyShopingCar(rowsOfTable) ? showMessageOfEmptyShopingCar() : showMessageTotal();
+
+    // Remove one notificacion
+    notificacion.setAttribute('title',`${rowsOfTable.length}`);
 }
 
 
@@ -42,6 +46,9 @@ const bodyTable = document.querySelector('.tbody');
         bodyTable.removeChild(bodyTable.firstChild);
     }
     showMessageOfEmptyShopingCar();
+
+    // Set to zero the notificacion
+    notificacion.setAttribute('title',`0`);
 }
 
 

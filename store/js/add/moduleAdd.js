@@ -3,6 +3,8 @@ import {showMessageTotal} from '../helpers/helpers.js';
 
 const listOfProducts = document.querySelector('#list-card tbody');
 const bodyTable = document.querySelector('.tbody');
+const carShoping = document.querySelector('.shoping');
+const notificacion = document.querySelector('.shoping');
 
 /**
  * Function to add product to the store
@@ -24,6 +26,11 @@ const bodyTable = document.querySelector('.tbody');
     }
     
     showMessageTotal();
+    
+    const allProducts = Array.from(bodyTable.children);
+    carShoping.style.before = 'block';
+    // Change the number of notifications positive
+    notificacion.setAttribute('title',`${allProducts.length}`);
 }
 
 /**

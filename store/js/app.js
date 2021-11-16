@@ -14,6 +14,7 @@ function loadListeners() {
     buttonCleanStore.addEventListener('click', cleanStore);
 
     showMessageOfEmptyShopingCar();
+
 }
 
 loadListeners();
