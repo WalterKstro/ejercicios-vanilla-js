@@ -1,0 +1,97 @@
+/**
+ * Desabilitar botton de envio de formulario, hasta que se haya completado el formulario
+ * Validar todos los campos del formulario, y si todos los campos son correctos, habilitar el boton de envio. Esto se hace en el evento onblur de cada campo.
+ * En el evento onblur de cada campo, se valida que el campo no este vacio, y si es asi, se muestra un mensaje de error.
+ * Una vez que se haya completado el formulario, se habilitara el boton de envio. y se ejecutara la funcion de envio del formulario. mostrando un loading  y finalizando con un mensaje de exito.
+ * Luego se debe de resetear el formulario automaticamente.
+ * Agregar botton de resetear formulario.
+ * 
+ */
+
+
+
+ const buttonReset = document.querySelector("#resetBtn");
+ const form = document.querySelector("#form");
+ const fieldEmail = document.querySelector("#email");
+ const fieldMessgae = document.querySelector("#message");
+ const fieldSubject = document.querySelector("#subject");
+ const alertMessage = document.querySelector("#alert_message");
+
+ /**
+  * Function load the listeners
+  */
+function loadListeners() {
+    fieldEmail.addEventListener("blur", validateFieldsForm);
+    fieldMessgae.addEventListener("blur", validateFieldsForm);
+    fieldSubject.addEventListener("blur", validateFieldsForm);
+}
+
+document.addEventListener("DOMContentLoaded", loadListeners);
+
+
+/**
+ * Function validate that all fields are not empty
+ * @param {*} evt 
+ */
+function validateFieldsForm(evt){
+    const isEmptyField = isEmptyFieldForm(evt);
+    
+    if(isEmptyField){
+        alertMessage.textContent = "Campo no puede estar vacio";
+        shouldShowErrorMessage({evt,isEmptyField})
+    } else {
+        shouldShowErrorMessage({evt,isEmptyField});
+        
+        const fieldIsEmail = evt.target.hasAttribute('data-email');
+        fieldIsEmail && validateEmail(evt.target.value)
+    }
+    
+}
+
+/**
+ * Function validate that if the field is empty
+ * @param {*} param0 
+ * @returns 
+ */
+function isEmptyFieldForm({target}){
+    const dataInput = target.value.toLowerCase().trim();
+    return dataInput.length === 0 ? true : false;
+}
+
+/**
+ * Function that determines if should show the error message
+ * @param {*} param0 
+ */
+function shouldShowErrorMessage({evt, isEmptyField}){
+    const nodeAlert = evt.target.nextElementSibling;
+    isEmptyField ? showAlertError(nodeAlert) : hideAlertError(nodeAlert)
+}
+
+/**
+ * Function that show the error message
+ * @param {*} nodeAlert 
+ */
+function showAlertError(nodeAlert){
+    nodeAlert.classList.add('alert__enabled')
+    nodeAlert.classList.remove('alert__disabled')
+}
+
+/**
+ * Function that hide the error message
+ * @param {*} nodeAlert 
+ */
+function hideAlertError(nodeAlert){
+    nodeAlert.classList.add('alert__disabled');
+    nodeAlert.classList.remove('alert__enabled');
+}
+
+/**
+ * Function that validate if the email is correct
+ * @param {*} email 
+ */
+function validateEmail(email) {
+    const expresionRegular = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const isValidEmail = expresionRegular.test(email.toLowerCase());
+    alertMessage.textContent = "Email no es válido";
+    !isValidEmail ? showAlertError(alertMessage) : hideAlertError(alertMessage);
+}
