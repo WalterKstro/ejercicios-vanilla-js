@@ -1,5 +1,5 @@
 import { getAllData} from "../fetchAPI/getAll.js";
-import { counterResultsNumber } from "../filters/filters.js";
+import { counterResultsNumber, createHtmlMessage } from "../filters/filters.js";
 
 const tableBody = document.querySelector('#results tbody');
 const typeError = document.querySelector('#error');
@@ -22,7 +22,8 @@ function functionLoadData() {
             counterResultsNumber(data.length);
         })
         .catch(error => {
-            typeError.textContent = "Error en obtener los datos. Intente más tarde";
+            const parentNode = document.querySelector('#app_container');
+            createHtmlMessage(parentNode,"Error en obtener los datos, intente mas tarde");
         })
         .finally(() => {
             fillYearsOfSelect();

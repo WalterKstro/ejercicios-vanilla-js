@@ -77,6 +77,7 @@ function applyFilter(evt){
         });
         
         counterResultsNumber(copyData.length);
+        copyData.length === 0 ? showEmptyFilterResultsMessage() : hideEmptyFilterResultsMessage();
     } , 1000);
 }
 
@@ -85,8 +86,26 @@ function counterResultsNumber(total){
     const counterResults = document.getElementById('counter_result');
     counterResults.innerHTML = total;
 }
- 
+
+function showEmptyFilterResultsMessage(){
+    const parentNode = document.querySelector('#app_container');
+    const isMessage = document.querySelector('.message');
+    isMessage === null && createHtmlMessage(parentNode,"No hay resultados para la búsqueda");
+}
+function hideEmptyFilterResultsMessage(){
+    const message = document.querySelector('.message');
+    message ? message.remove() : null; 
+} 
+
+function createHtmlMessage(parentNode, message){
+    const containerMessage = document.createElement('p');
+    containerMessage.classList.add('message');
+    containerMessage.textContent = message;
+    parentNode.appendChild(containerMessage);
+}
 export {
     applyFilter,
-    counterResultsNumber
+    counterResultsNumber,
+    showEmptyFilterResultsMessage,
+    createHtmlMessage
 }
