@@ -12,9 +12,9 @@
 </head>
 <body>
 
-    <h1>Buscador de Autos</h1>
+    <h3 class="title_main">Filtros</h3>
 
-    <div class="contenedor">
+    <div class="container">
 
         
 
@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="three columns">
                     <label for="marca">Marca</label>
-                    <select class="u-full-width" id="marca">
+                    <select class="u-full-width" id="brand">
                         <option value="">Seleccione</option>
                         <option value="Audi">Audi</option>
                         <option value="BMW">BMW</option>
@@ -33,14 +33,14 @@
                     </select>
                 </div>
                 <div class="three columns">
-                    <label for="year">Año</label>
+                    <label for="year">Año</label> 
                     <select class="u-full-width" id="year">
                         <option value="">Seleccione</option>
                     </select>
                 </div>
                 <div class="three columns">
                     <label for="minimo">Precio Min</label>
-                    <select class="u-full-width" id="minimo">
+                    <select class="u-full-width" id="price-min">
                             <option value="">Seleccione</option>
                             <option value="20000">20,000</option>
                             <option value="30000">30,000</option>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="three columns">
                     <label for="maximo">Precio Max</label>
-                    <select class="u-full-width" id="maximo">
+                    <select class="u-full-width" id="price-max">
                             <option value="">Seleccione</option>
                             <option value="20000">20,000</option>
                             <option value="30000">30,000</option>
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="four columns">
                         <label for="puertas">Puertas</label>
-                        <select class="u-full-width" id="puertas">
+                        <select class="u-full-width" id="doors">
                                 <option value="">Seleccione</option>
                                 <option value="2">2</option>
                                 <option value="4">4</option>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="four columns">
                         <label for="transmision">Transmisión</label>
-                        <select class="u-full-width" id="transmision">
+                        <select class="u-full-width" id="transmission">
                                 <option value="">Seleccione</option>
                                 <option value="automatico">Automática</option>
                                 <option value="manual">Manual</option>
@@ -98,8 +98,8 @@
         </form>
 
 
-        <h2>Resultados</h2>
-        <table class="table" id="results">
+        <h5>Resultados: <span id="counter_result"></span></h5>
+        <table class="table u-full-width" id="results">
             <thead>
               <tr>
                 <th>Marca</th>

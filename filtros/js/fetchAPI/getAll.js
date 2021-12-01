@@ -3,9 +3,10 @@
  * @param {*} url 
  * @returns 
  */
+
 async function getAllData(url) {
     const data = await fetch(url);
-    const parseJson = await data.json()
+    const parseJson = await data.json();
     return parseJson;
 }
 

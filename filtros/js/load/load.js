@@ -1,29 +1,42 @@
-import { getAllData } from "../fetchAPI/getAll.js";
+import { getAllData} from "../fetchAPI/getAll.js";
+import { counterResultsNumber } from "../filters/filters.js";
 
 const tableBody = document.querySelector('#results tbody');
 const typeError = document.querySelector('#error');
+const years = new Set();
+const url = "https://my-json-server.typicode.com/WalterKstro/json-server/cars";
 
 
 /**
  * Function to load all data from API
  */
-function functionLoadData(){
-    getAllData("https://my-json-server.typicode.com/WalterKstro/json-server/cars")
-    .then(data => {
-        data.forEach(objectCar => {
-            createTableRow(objectCar);
+function functionLoadData() {
+
+    getAllData(url)
+        .then(data => {
+            resetTableRows();       
+			data.forEach(objectCar => {
+                createTableRow(objectCar);
+                filterYears(objectCar);
+            });  
+            counterResultsNumber(data.length);
+        })
+        .catch(error => {
+            typeError.textContent = "Error en obtener los datos. Intente más tarde";
+        })
+        .finally(() => {
+            fillYearsOfSelect();
         });
-    })
-    .catch(error => {
-        typeError.textContent = "Error en obtener los datos. Intente más tarde";
-    })
-}
+		
+	}
+	
+
 
 /**
  * Function to create a table row
  * @param {*} carObject 
  */
-function createTableRow(carObject){
+function createTableRow(carObject) {
     const tableRow = document.createElement('tr');
 
     for (const key in carObject) {
@@ -35,4 +48,53 @@ function createTableRow(carObject){
     tableBody.appendChild(tableRow);
 }
 
-export default functionLoadData;
+
+/**
+ * Function to delete year repeated
+ * @param {*} param0 
+ */
+function filterYears({year}) {
+    years.add(year);
+}
+
+/**
+ * Function to fill select years
+ */
+function fillYearsOfSelect() {
+    const selectYears = document.querySelector('#year');
+    for (const year of orderDescYears()) {
+        const option = document.createElement('option');
+        option.textContent = year;
+        selectYears.appendChild(option);
+    }
+}
+
+/**
+ * Function to order years of DESC
+ * @returns 
+ */
+function orderDescYears() {
+    return Array.from(years).sort(orderYears);
+}
+/**
+ * Callback order years
+ * @param {*} prevYear 
+ * @param {*} nextYear 
+ * @returns 
+ */
+function orderYears(prevYear, nextYear) {
+    return nextYear - prevYear;
+}
+
+
+function resetTableRows(){
+    while(tableBody.firstChild){
+        tableBody.removeChild(tableBody.firstChild);
+    }
+}
+export {
+    functionLoadData,
+    resetTableRows,
+    createTableRow,
+    filterYears,
+};
