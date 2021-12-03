@@ -6,8 +6,8 @@ import {applyFilter} from './filters/filters.js';
  */
 const brandCar = document.querySelector('#brand');
 const yearCar = document.querySelector('#year');
-const priceMin = document.querySelector('#price-min');
-const priceMax = document.querySelector('#price-max');
+const priceMin = document.querySelector('.min');
+const priceMax = document.querySelector('.max');
 const doors = document.querySelector('#doors');
 const color = document.querySelector('#color');
 const transmission = document.querySelector('#transmission');

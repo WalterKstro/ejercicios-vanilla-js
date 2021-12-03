@@ -3,5 +3,9 @@
     margin: 8px 0;
 }
 .table tr:nth-child(even) {
-    background-color: #e0e0e0;
+    background-color: #cccbcb;
+}
+.table td,
+.table th{
+    text-align: center;
 }

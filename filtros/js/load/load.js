@@ -1,8 +1,7 @@
 import { getAllData} from "../fetchAPI/getAll.js";
-import { counterResultsNumber, createHtmlMessage } from "../filters/filters.js";
+import { counterResultsNumber, createHtmlMessage } from "../messages/messages.js";
 
 const tableBody = document.querySelector('#results tbody');
-const typeError = document.querySelector('#error');
 const years = new Set();
 const url = "https://my-json-server.typicode.com/WalterKstro/json-server/cars";
 
@@ -99,3 +98,4 @@ export {
     createTableRow,
     filterYears,
 };
+
