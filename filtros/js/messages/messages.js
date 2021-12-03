@@ -41,5 +41,5 @@ export {
     counterResultsNumber,
     showEmptyFilterResultsMessage,
     hideEmptyFilterResultsMessage,
-    createHtmlMessage
+    createHtmlMessage,
 }

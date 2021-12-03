@@ -18,12 +18,12 @@ function saveCopyData(data){
  * Function to filter the data
  * @param {*} evt 
  */
-function applyFilter(evt){
+function applyFilter({target}){
  getAllData(url)   
  .then(saveCopyData)
 
-  const key = evt.target.id;
-  const value = evt.target.value != "" ? evt.target.value : "";
+  const key = target.id;
+  const value = target.value != "" ? target.value : "";
   
   const index = paramsFilter.findIndex(objectFilter => objectFilter.key == key);
   index === -1 ? paramsFilter.push({key, value}) : paramsFilter[index].value = value;
@@ -45,13 +45,24 @@ function applyFilter(evt){
 }
 
 
+/**
+ * Function to apply the filters
+ * @param {*} param0 
+ * @returns 
+ */
 function applyFilteres({key, value}){
 
     if(key.includes('price')){
-        const keyPrice = key.includes('min') ? key.replace('_min','') : key.replace('_max','');
-        return copyData.filter(car => {
-            return car[keyPrice] >= value;
-        });
+        const keyPrice = key.split('_')[0];
+        if(key.includes('min')){
+            return copyData.filter(car => {
+                return car[keyPrice] >= value;
+            });
+        }else {
+            return copyData.filter(car => {
+                return car[keyPrice] <= value;
+            });
+        }
     }else {
         return copyData.filter(car => {
             return String(car[key]).includes(value);
@@ -63,7 +74,4 @@ function applyFilteres({key, value}){
 export {
     applyFilter
 }
-
-
-
 

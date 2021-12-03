@@ -41,7 +41,14 @@ function createTableRow(carObject) {
 
     for (const key in carObject) {
         const tableDescription = document.createElement('td');
-        tableDescription.textContent = carObject[key];
+        if(key.includes('price')){
+            /** FORMAT THE PRICE TO GTQ */
+            const priceFormatted = applyFormatCurrency(carObject[key]);
+            tableDescription.textContent = priceFormatted;
+        }else {
+            tableDescription.textContent = carObject[key];
+        }
+
         tableRow.appendChild(tableDescription)
     }
 
@@ -86,12 +93,29 @@ function orderYears(prevYear, nextYear) {
     return nextYear - prevYear;
 }
 
-
+/**
+ * Function to reset table rows
+ */
 function resetTableRows(){
     while(tableBody.firstChild){
         tableBody.removeChild(tableBody.firstChild);
     }
 }
+
+/**
+ * Function to format the price to GTQ
+ * @param {*} value 
+ * @returns 
+ */
+function applyFormatCurrency(value){
+    const formatter = new Intl.NumberFormat('es-GT', {
+        style: 'currency',
+        currency: 'GTQ',
+        minimumFractionDigits: 0
+    });
+    return formatter.format(value);
+}
+
 export {
     functionLoadData,
     resetTableRows,
