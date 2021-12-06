@@ -27,7 +27,7 @@ function applyFilter({target}){
   
   const index = paramsFilter.findIndex(objectFilter => objectFilter.key == key);
   index === -1 ? paramsFilter.push({key, value}) : paramsFilter[index].value = value;
-
+  
     setTimeout(() => {
         paramsFilter.forEach(param => {            
             copyData = applyFilteres(param);
@@ -56,11 +56,12 @@ function applyFilteres({key, value}){
         const keyPrice = key.split('_')[0];
         if(key.includes('min')){
             return copyData.filter(car => {
+                console.log(car[keyPrice]);
                 return car[keyPrice] >= value;
             });
         }else {
             return copyData.filter(car => {
-                return car[keyPrice] <= value;
+                return value==='' ? car : car[keyPrice] <= value;
             });
         }
     }else {
