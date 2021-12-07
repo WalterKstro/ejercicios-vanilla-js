@@ -4,7 +4,7 @@
  */
 function calculateTotal(rows) {
     const total = calculateSubTotal(rows).reduce((previousSubtotal, total) => previousSubtotal + total,0);
-    return total;
+    return applyFormatCurrency(total);
 }
 
 
@@ -20,5 +20,12 @@ function calculateSubTotal(rows){
     });
     return subtotals;
 }
-
+function applyFormatCurrency(value){
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0
+    });
+    return formatter.format(value);
+}
 export default calculateTotal;

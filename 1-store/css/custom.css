@@ -214,7 +214,7 @@ text-decoration: none;
 .msg_total{
     text-align: center;
     font-weight: bold;
-    background-color: rgb(43, 145, 43);
+    background: linear-gradient(to right, #741d51 0%,#e44e52 100%);
     color: white;
     display: block;
     padding: 5px 0;
