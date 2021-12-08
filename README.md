@@ -4,3 +4,4 @@
 2. Simulación de envió de un formulario
 3. Aplicación de multiples filtros en una tabla
 4. Simulación de un chat con localStorage
+5. Simulación de un carrito de compras con localStorage
