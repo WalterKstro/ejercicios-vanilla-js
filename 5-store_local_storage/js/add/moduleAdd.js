@@ -1,5 +1,5 @@
 import {showMessageTotal} from '../helpers/helpers.js';
-import {saveProductOnLocalStorage} from '../store/store.js';
+import {saveProductOnLocalStorage,apendRowsTable} from '../store/store.js';
 
 const listOfProducts = document.querySelector('#list-card tbody');
 const bodyTable = document.querySelector('.tbody');
@@ -15,13 +15,8 @@ const notificacion = document.querySelector('.shoping');
     if (isClass) {
         const nodeCard = target.parentNode.parentNode;
         const productObject = createObject(nodeCard);
-        const row = createRowTable(productObject);
         saveProductOnLocalStorage(productObject);
-        if (isNewProduct(productObject)) {
-            listOfProducts.appendChild(row);
-        } else {
-            addOneUnit(productObject);
-        }
+        apendRowsTable();
 
     }
     
@@ -66,11 +61,10 @@ const notificacion = document.querySelector('.shoping');
     const [image, info] = nodeParent.children;
     const [title, , , price] = info.children;
     const [usPrice] = price.children;
-
     return {
         image: image.src.substring(image.src.lastIndexOf('/') + 1),
         title: title.textContent,
-        price: usPrice.textContent,
+        price: usPrice.textContent.substring(1),
         quantity: '1'
     }
 }
