@@ -20,7 +20,7 @@ const notificacion = document.querySelector('.shoping');
 
     }
     const rowsOfTable = Array.from(bodyTable.children);
-    isEmptyShopingCar(rowsOfTable) ? showMessageOfEmptyShopingCar() : showMessageTotal();
+    isEmptyShopingCar() ? showMessageOfEmptyShopingCar() : showMessageTotal();
 
     // Remove one notificacion
     notificacion.setAttribute('title',`${rowsOfTable.length}`);

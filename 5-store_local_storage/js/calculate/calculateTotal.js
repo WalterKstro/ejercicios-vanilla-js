@@ -1,9 +1,10 @@
+const db = window.localStorage;
 /**
  * Calculates the total of the subtotals
  * @param {*} rows 
  */
-function calculateTotal(rows) {
-    const total = calculateSubTotal(rows).reduce((previousSubtotal, total) => previousSubtotal + total,0);
+function calculateTotal() {
+    const total = calculateSubTotal().reduce((previousSubtotal, total) => previousSubtotal + total,0);
     return applyFormatCurrency(total);
 }
 
@@ -13,12 +14,15 @@ function calculateTotal(rows) {
  * @param {*} rows 
  * @returns 
  */
-function calculateSubTotal(rows){
-    const subtotals = rows.map(row => {
-        const [, ,price, units,] = Array.from(row.children);
-        return price.textContent.substring(1) * units.textContent;
-    });
-    return subtotals;
+function calculateSubTotal(){
+    let arraySubtotals = 0;
+    const arrayProducts = JSON.parse(db.getItem('products'));
+    if(arrayProducts != null){
+        arraySubtotals = arrayProducts.map(objectProduct => {
+            return Number(objectProduct.quantity) * objectProduct.price;
+        });
+    }
+    return arraySubtotals;
 }
 function applyFormatCurrency(value){
     const formatter = new Intl.NumberFormat('en-US', {

@@ -50,9 +50,11 @@ function callBackOfIsNewProduct(){
 function apendRowsTable(){
     const arrayProducts = JSON.parse(db.getItem('products'));
     resetRowsTable();
-    arrayProducts.forEach(objectProduct => {
-        bodyTable.appendChild(createRowTable(objectProduct));
-    })
+    if(arrayProducts != null){
+        arrayProducts.forEach(objectProduct => {
+            bodyTable.appendChild(createRowTable(objectProduct));
+        })
+    }
 
 }
 

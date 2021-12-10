@@ -12,12 +12,12 @@ const notificacion = document.querySelector('.shoping');
  */
  function addProduct({ target }) {
     const isClass = target.classList.contains('agregar-carrito');
+    
     if (isClass) {
         const nodeCard = target.parentNode.parentNode;
         const productObject = createObject(nodeCard);
         saveProductOnLocalStorage(productObject);
         apendRowsTable();
-
     }
     
     showMessageTotal();
