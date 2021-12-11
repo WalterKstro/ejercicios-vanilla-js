@@ -22,15 +22,13 @@ function isEmptyShopingCar(){
  */
 function showMessageOfEmptyShopingCar() {
     
-    if(isEmptyShopingCar()){
-        const message = document.createElement('p');
-        message.classList.add('message','msg_empty');
-        message.textContent = 'No hay productos en el carrito';
-        message.style.textAlign = 'center';
-        message.style.fontWeight = 'bold';
-        messageTotal.appendChild(message);
-        
-    }
+    const message = document.createElement('p');
+    message.classList.add('message','msg_empty');
+    message.textContent = 'No hay productos en el carrito';
+    message.style.textAlign = 'center';
+    message.style.fontWeight = 'bold';
+    messageTotal.appendChild(message);
+    
 }
 
 /**
@@ -41,15 +39,14 @@ function showMessageTotal(){
     
     oldMessage != null && oldMessage.remove();
 
-    const rowsOfTable = Array.from(bodyTable.children);
     const isNodeTotal = document.querySelector('.msg_total');
 
     if(isNodeTotal){
-        isNodeTotal.textContent = `Total: ${calculateTotal(rowsOfTable)}`;
+        isNodeTotal.textContent = `Total: ${calculateTotal()}`;
     }else {
         const total = document.createElement('p');
         total.classList.add('message','msg_total');
-        total.textContent = `Total: ${calculateTotal(rowsOfTable)}`;
+        total.textContent = `Total: ${calculateTotal()}`;
         total.style.textAlign = 'center';
         total.style.fontWeight = 'bold';
         messageTotal.appendChild(total);

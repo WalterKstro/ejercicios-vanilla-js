@@ -78,6 +78,9 @@ function createRowTable(objectProduct){
             row.appendChild(column);
         }
     }
+    const btnDeleteProduct = createButtonDelete();
+    row.appendChild(btnDeleteProduct);
+    
     return row;
 }
 
@@ -91,6 +94,19 @@ function resetRowsTable(){
     while(bodyTable.firstChild){
         bodyTable.firstChild.remove();
     }
+}
+
+/**
+ * Function create button delete
+ * @returns 
+ */
+ function createButtonDelete() {
+    const column = document.createElement('td');
+    const btnDelete = document.createElement('button');
+    btnDelete.classList.add('eliminar-carrito');
+    btnDelete.textContent = '🗑️';
+    column.appendChild(btnDelete);
+    return column;
 }
 
 export {

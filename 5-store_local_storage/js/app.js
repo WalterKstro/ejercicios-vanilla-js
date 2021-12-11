@@ -1,5 +1,5 @@
 import {deleteProduct,cleanStore} from './delete/moduleDelete.js';
-import {showMessageOfEmptyShopingCar} from './helpers/helpers.js';
+import {showMessageOfEmptyShopingCar,isEmptyShopingCar,showMessageTotal} from './helpers/helpers.js';
 import addProduct from './add/moduleAdd.js';
 import {apendRowsTable} from './store/store.js';
 
@@ -14,7 +14,8 @@ function loadListeners() {
     bodyTable.addEventListener('click', deleteProduct);
     buttonCleanStore.addEventListener('click', cleanStore);
 
-    showMessageOfEmptyShopingCar();
+    isEmptyShopingCar() ? showMessageOfEmptyShopingCar() : showMessageTotal();
+    
 
 }
 
