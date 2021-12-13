@@ -11,7 +11,7 @@ const db = window.localStorage;
  */
 function isEmptyShopingCar(){
     const arrayProducts = JSON.parse(db.getItem('products'));
-    if(arrayProducts === null){
+    if(arrayProducts === null || arrayProducts.length === 0){
         return true;
     }
     return false;
@@ -21,7 +21,10 @@ function isEmptyShopingCar(){
  * Function to show a message if the shopping car is empty
  */
 function showMessageOfEmptyShopingCar() {
+    const oldMessage = document.querySelector('.msg_total');
     
+    oldMessage != null && oldMessage.remove();
+
     const message = document.createElement('p');
     message.classList.add('message','msg_empty');
     message.textContent = 'No hay productos en el carrito';

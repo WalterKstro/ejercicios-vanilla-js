@@ -64,8 +64,8 @@ const notificacion = document.querySelector('.shoping');
     return {
         image: image.src.substring(image.src.lastIndexOf('/') + 1),
         title: title.textContent,
-        price: usPrice.textContent.substring(1),
-        quantity: '1'
+        price: Number(usPrice.textContent.substring(1)),
+        quantity: 1
     }
 }
 

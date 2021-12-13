@@ -80,7 +80,7 @@ function createRowTable(objectProduct){
     }
     const btnDeleteProduct = createButtonDelete();
     row.appendChild(btnDeleteProduct);
-    
+
     return row;
 }
 
@@ -109,7 +109,47 @@ function resetRowsTable(){
     return column;
 }
 
+function searchProduct(id){
+    const arrayProducts = JSON.parse(db.getItem('products'));
+    const indexOfProduct = arrayProducts.findIndex(objectProduct => objectProduct.id === id);
+    return indexOfProduct;
+}
+
+function updateLocalStorage({state, index}){
+    let arrayProducts = JSON.parse(db.getItem('products'));
+    if(state){
+        arrayProducts.splice(index, 1);
+        db.setItem('products', JSON.stringify(arrayProducts));
+    }else{
+        const objectProduct = arrayProducts[index];
+        objectProduct.quantity -= 1;
+        db.setItem('products', JSON.stringify(arrayProducts));
+    }
+    apendRowsTable();
+    
+}
+
+/**
+ * Determine if the product is only one
+ * @param {*} rowNode 
+ * @returns 
+ */
+ function isOnlyOneProduct(indexOfProduct) {
+    const arrayProducts = JSON.parse(db.getItem('products'));
+    const objectProduct = arrayProducts[indexOfProduct];
+    return objectProduct.quantity === 1 ? true : false;
+}
+
+function updateNofication(){
+    const arrayProducts = JSON.parse(db.getItem('products'));
+    return Number(arrayProducts.length);
+}
+
 export {
     saveProductOnLocalStorage,
-    apendRowsTable
+    apendRowsTable,
+    searchProduct,
+    updateLocalStorage,
+    isOnlyOneProduct,
+    updateNofication
 }
