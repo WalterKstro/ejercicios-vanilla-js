@@ -1,4 +1,4 @@
-import {showMessageOfEmptyShopingCar} from '../helpers/helpers.js';
+import {showMessageOfEmptyShopingCar,disabledButtonClearStore} from '../helpers/helpers.js';
 
 
 const bodyTable = document.querySelector('#list-card tbody');
@@ -157,6 +157,8 @@ function updateNofication(){
     db.clear();
     resetRowsTable();
     showMessageOfEmptyShopingCar();
+    
+    disabledButtonClearStore();
 
     // Set to zero the notificacion
     notificacion.setAttribute('title',`${updateNofication()}`);

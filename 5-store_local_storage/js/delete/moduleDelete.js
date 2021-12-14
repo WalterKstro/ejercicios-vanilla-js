@@ -1,7 +1,7 @@
-import {isEmptyShopingCar, showMessageTotal,showMessageOfEmptyShopingCar} from '../helpers/helpers.js';
+import {isEmptyShopingCar, showMessageTotal,showMessageOfEmptyShopingCar,disabledButtonClearStore} from '../helpers/helpers.js';
 import {searchProduct,updateLocalStorage,isOnlyOneProduct, updateNofication} from '../store/store.js';
 
-const bodyTable = document.querySelector('.tbody');
+
 const notificacion = document.querySelector('.shoping');        
 
 /**
@@ -25,6 +25,8 @@ const notificacion = document.querySelector('.shoping');
         
         isEmptyShopingCar() ? showMessageOfEmptyShopingCar() : showMessageTotal();
     }
+
+    disabledButtonClearStore();
     
     // Remove one notificacion
     notificacion.setAttribute('title',`${updateNofication()}`);

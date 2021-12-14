@@ -1,7 +1,8 @@
-const messageTotal = document.querySelector('#total');
 import calculateTotal from '../calculate/calculateTotal.js';
 
-const bodyTable = document.querySelector('.tbody');
+const messageTotal = document.querySelector('#total');
+
+
 const db = window.localStorage;
 
 /**
@@ -56,10 +57,19 @@ function showMessageTotal(){
     }
 }
 
-
+function disabledButtonClearStore(){
+    const buttonCleanStore = document.querySelector('#vaciar-carrito');
+    const arrayProducts = JSON.parse(db.getItem('products'));
+    if(arrayProducts === null || arrayProducts.length === 0){
+        buttonCleanStore.disabled = true;
+    }else{
+        buttonCleanStore.disabled = false;
+    }
+}
 
 export {
     isEmptyShopingCar,
     showMessageOfEmptyShopingCar,
     showMessageTotal,
+    disabledButtonClearStore
 }

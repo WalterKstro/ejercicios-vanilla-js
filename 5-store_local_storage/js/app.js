@@ -1,5 +1,5 @@
 import {deleteProduct} from './delete/moduleDelete.js';
-import {showMessageOfEmptyShopingCar,isEmptyShopingCar,showMessageTotal} from './helpers/helpers.js';
+import {showMessageOfEmptyShopingCar,isEmptyShopingCar,showMessageTotal,disabledButtonClearStore} from './helpers/helpers.js';
 import addProduct from './add/moduleAdd.js';
 import {apendRowsTable,cleanStore,updateNofication} from './store/store.js';
 
@@ -19,6 +19,8 @@ function loadListeners() {
     
     // Set to zero the notificacion
     notificacion.setAttribute('title',`${updateNofication()}`);
+    
+    disabledButtonClearStore();
 }
 
 loadListeners();
