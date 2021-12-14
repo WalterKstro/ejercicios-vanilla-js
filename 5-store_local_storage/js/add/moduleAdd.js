@@ -1,5 +1,5 @@
 import {showMessageTotal} from '../helpers/helpers.js';
-import {saveProductOnLocalStorage,apendRowsTable} from '../store/store.js';
+import {saveProductOnLocalStorage,apendRowsTable,updateNofication} from '../store/store.js';
 
 const listOfProducts = document.querySelector('#list-card tbody');
 const bodyTable = document.querySelector('.tbody');
@@ -22,10 +22,8 @@ const notificacion = document.querySelector('.shoping');
     
     showMessageTotal();
     
-    const allProducts = Array.from(bodyTable.children);
-    carShoping.style.before = 'block';
     // Change the number of notifications positive
-    notificacion.setAttribute('title',`${allProducts.length}`);
+    notificacion.setAttribute('title',`${updateNofication()}`);
 }
 
 /**

@@ -32,23 +32,6 @@ const notificacion = document.querySelector('.shoping');
 
 
 
-
-/**
- * Function to clean the store
- */
- function cleanStore() {
-    while (bodyTable.firstChild) {
-        bodyTable.removeChild(bodyTable.firstChild);
-    }
-    showMessageOfEmptyShopingCar();
-
-    // Set to zero the notificacion
-    notificacion.setAttribute('title',`0`);
-}
-
-
-
 export{
     deleteProduct,
-    cleanStore
 };

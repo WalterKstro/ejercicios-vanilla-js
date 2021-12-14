@@ -1,5 +1,9 @@
+import {showMessageOfEmptyShopingCar} from '../helpers/helpers.js';
+
+
 const bodyTable = document.querySelector('#list-card tbody');
 const db = window.localStorage;
+const notificacion = document.querySelector('.shoping');
 
 /**
  * Function to add a product to the store
@@ -142,8 +146,22 @@ function updateLocalStorage({state, index}){
 
 function updateNofication(){
     const arrayProducts = JSON.parse(db.getItem('products'));
-    return Number(arrayProducts.length);
+    return arrayProducts != null ? Number(arrayProducts.length) : 0;
 }
+
+
+/**
+ * Function to clean the store
+ */
+ function cleanStore() {
+    db.clear();
+    resetRowsTable();
+    showMessageOfEmptyShopingCar();
+
+    // Set to zero the notificacion
+    notificacion.setAttribute('title',`${updateNofication()}`);
+}
+
 
 export {
     saveProductOnLocalStorage,
@@ -151,5 +169,6 @@ export {
     searchProduct,
     updateLocalStorage,
     isOnlyOneProduct,
-    updateNofication
+    updateNofication,
+    cleanStore
 }
