@@ -1,8 +1,6 @@
-import calculateTotal from '../calculate/calculateTotal.js';
+import calculateTotal from '../calculate/Calculate.js';
 
 const messageTotal = document.querySelector('#total');
-
-
 const db = window.localStorage;
 
 /**
@@ -57,6 +55,9 @@ function showMessageTotal(){
     }
 }
 
+/**
+ * Function to disabled the button of clean the shopping car
+ */
 function disabledButtonClearStore(){
     const buttonCleanStore = document.querySelector('#vaciar-carrito');
     const arrayProducts = JSON.parse(db.getItem('products'));

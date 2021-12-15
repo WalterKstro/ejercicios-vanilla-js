@@ -1,7 +1,7 @@
-import {showMessageTotal,disabledButtonClearStore} from '../helpers/helpers.js';
-import {saveProductOnLocalStorage,apendRowsTable,updateNofication} from '../store/store.js';
+import {showMessageTotal,disabledButtonClearStore} from '../helpers/Helpers.js';
+import {saveProductOnLocalStorage,apendRowsTable,updateNofication} from '../store/Store.js';
 
-const listOfProducts = document.querySelector('#list-card tbody');
+
 const notificacion = document.querySelector('.shoping');
 
 /**

@@ -1,5 +1,5 @@
-import {isEmptyShopingCar, showMessageTotal,showMessageOfEmptyShopingCar,disabledButtonClearStore} from '../helpers/helpers.js';
-import {searchProduct,updateLocalStorage,isOnlyOneProduct, updateNofication} from '../store/store.js';
+import {isEmptyShopingCar, showMessageTotal,showMessageOfEmptyShopingCar,disabledButtonClearStore} from '../helpers/Helpers.js';
+import {searchProduct,updateLocalStorage,isOnlyOneProduct, updateNofication} from '../store/Store.js';
 
 
 const notificacion = document.querySelector('.shoping');        

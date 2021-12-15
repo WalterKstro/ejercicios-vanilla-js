@@ -24,6 +24,12 @@ function calculateSubTotal(){
     }
     return arraySubtotals;
 }
+
+/**
+ * Function to apply the format currency
+ * @param {*} value 
+ * @returns 
+ */
 function applyFormatCurrency(value){
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',

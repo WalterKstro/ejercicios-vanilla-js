@@ -1,4 +1,4 @@
-import {showMessageOfEmptyShopingCar,disabledButtonClearStore} from '../helpers/helpers.js';
+import {showMessageOfEmptyShopingCar,disabledButtonClearStore} from '../helpers/Helpers.js';
 
 
 const bodyTable = document.querySelector('#list-card tbody');
@@ -51,6 +51,9 @@ function callBackOfIsNewProduct(){
     return title.toLowerCase() === objectProduct.title.toLowerCase();
 }
 
+/**
+ * Function to add rows to the table
+ */
 function apendRowsTable(){
     const arrayProducts = JSON.parse(db.getItem('products'));
     resetRowsTable();
@@ -62,6 +65,11 @@ function apendRowsTable(){
 
 }
 
+/**
+ * Function to create a row of the table
+ * @param {*} objectProduct 
+ * @returns 
+ */
 function createRowTable(objectProduct){
     const row = document.createElement('tr');
     row.setAttribute('id', objectProduct.id);
@@ -88,12 +96,20 @@ function createRowTable(objectProduct){
     return row;
 }
 
+/**
+ * Function to validate if the image is a image
+ * @param {*} noun 
+ * @returns 
+ */
 function validateImages(noun) {
     const expresionRegular = /.*\.(gif|jpe?g|bmp|png)$/igm;
     const isImage = expresionRegular.test(noun);    
     return isImage;
 }
 
+/**
+ * Function to reset the table
+ */
 function resetRowsTable(){
     while(bodyTable.firstChild){
         bodyTable.firstChild.remove();
@@ -113,12 +129,22 @@ function resetRowsTable(){
     return column;
 }
 
+/**
+ * Function to search the index of the product
+ * @param {*} id 
+ * @returns 
+ */
 function searchProduct(id){
     const arrayProducts = JSON.parse(db.getItem('products'));
     const indexOfProduct = arrayProducts.findIndex(objectProduct => objectProduct.id === id);
     return indexOfProduct;
 }
 
+
+/**
+ * Function to update the localStorage
+ * @param {*} param0 
+ */
 function updateLocalStorage({state, index}){
     let arrayProducts = JSON.parse(db.getItem('products'));
     if(state){
@@ -144,6 +170,10 @@ function updateLocalStorage({state, index}){
     return objectProduct.quantity === 1 ? true : false;
 }
 
+/**
+ * Function to update the notificacion
+ * @returns 
+ */
 function updateNofication(){
     const arrayProducts = JSON.parse(db.getItem('products'));
     return arrayProducts != null ? Number(arrayProducts.length) : 0;
