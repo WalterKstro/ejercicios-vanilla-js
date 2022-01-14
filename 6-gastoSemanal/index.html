@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Gasto Semanal</title>
+
+  </head>
+  <body>
+    <div class="container">
+        <header>
+                <h1 class="text-center">Gasto Semanal</h1>
+        </header>
+        <section class="contenido-principal">
+            <div class="row">
+                <div class="col ">
+                    <div class="contenido primario">
+                        <h2 class="text-center">Añade tus gastos aqui</h2>
+                            <form id="add-expense">
+                                <div class="form-group">
+                                    <label for="gasto">Gasto:</label>
+                                    <input type="text" class="form-control" id="expense" placeholder="Nombre Gasto">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad:</label>
+                                    <input type="text" class="form-control" id="quantity" placeholder="Cantidad en $">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-sm btn-success">Nuevo Gasto</button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary" id="new-budget">Actualizar Presupuesto</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                    </div> <!--.contenido-->
+                </div> <!--.col-->
+
+                <div class="col">
+                    <div class="contenido secundario">
+                        <h2 class="text-center">Listado</h2>
+                        <div id="gastos">
+                            <ul class="list-group list-group-flush" id="list-expenses"></ul>
+                        </div>
+                    </div> <!--.contenido-->
+                </div><!--.col-->
+            </div> <!--.row-->
+            <div class="row px-3">
+                <div class="col">
+                    <div id="presupuesto" class="row presupuesto">
+                        <div class="col py-3">
+                            <div class="progress" style="height: 30px;">
+                                <div class="progress-bar flex-row align-items-center bg-success" role="progressbar" id="progress-bar">
+                                    <span id="rest"  class="mr-2" data-rest></span> /
+                                    <span id="percentage" class="ml-2" data-percentage></span>
+                                </div>
+                            </div>
+                            <p class="text-center">Presupuesto Restante</p>
+                        </div>
+                    </div> <!--.presupuesto-->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
