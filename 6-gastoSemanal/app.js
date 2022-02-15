@@ -11,7 +11,7 @@ import {
 const submitFormExpense = document.getElementById('add-expense');
 const listOfExpenses = document.getElementById('list-expenses');
 const buttonUpdateBudget = document.getElementById('new-budget');
-const title = document.querySelector('h1');
+
 let newBudget;
 
 (async () => {

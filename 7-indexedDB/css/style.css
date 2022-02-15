@@ -1,0 +1,6 @@
+tr td:last-child{
+    pointer-events: none;
+}
+tr td:last-child button{
+    pointer-events: all;
+}
