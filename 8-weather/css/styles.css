@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --dark: #181A19;
+  --light: #D9D8D4;
+  --dark-loader:#1F1F1F;
+
+  --gold_1: #BD7B3F;
+  --gold_2:#C49F6C;
+}
+
+
+html,body{
+  font-family: 'Lato', sans-serif;
+  background-image: url('../assets/weather.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.full-width{
+  background-color: #0c0808a6;
+}

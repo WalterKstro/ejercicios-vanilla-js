@@ -7,3 +7,4 @@
 5. Simulación de un carrito de compras con localStorage
 6. Gasto semanal (localStorage, POO)
 7. CRUD (IndexedDB)
+8. Consultar el clima
