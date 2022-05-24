@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+
+
+/*Contenedor global*/
+.wrapper{
+	min-height: 100vh;
+	max-width: 95%;
+	margin-right: auto;
+	margin-left: auto;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 100px 1fr;
+}
+
+/*Wrapper del contenido de tweets*/
+.wrapper__content{
+	display: grid;
+	grid-template-columns: 400px 1fr;
+	column-gap: 50px;
+}
+
+@media screen and (max-width: 768px){
+	.wrapper__content{
+		grid-template-columns: 1fr;
+	}
+}
+
+/*Formulario*/
+
+.form{
+	display: flex;
+	flex-direction: column;
+}
+.msg__tweet{
+	margin: 20px 0;
+}
+
+
+/*Ajustes del grid items*/
+.header{
+	justify-self: center;
+	align-self: center;
+}
+
+
+
+/*Estilos del listado de tweets*/
+.listWrapper{
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	background: #fafafa;
+	padding: 10px 20px;
+}
+.photo{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	background-image: url(http://lorempixel.com/50/50/people/);
+}
+.wrapper__profile{
+	flex-grow: 1;
+	margin-left: 10px;
+}
+.tweet__nick,
+.tweet__body{
+	margin: 0;
+}
+.tweet__nick{font-weight: bold;}
+.tweet__body{font-size: 0.8rem;}

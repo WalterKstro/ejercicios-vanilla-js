@@ -8,3 +8,4 @@
 6. Gasto semanal (localStorage, POO)
 7. CRUD (IndexedDB)
 8. Consultar el clima
+9. Toma de ordenes y calculo del total
