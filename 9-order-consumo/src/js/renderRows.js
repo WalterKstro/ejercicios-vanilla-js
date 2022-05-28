@@ -26,7 +26,7 @@ export const renderRows = async () => {
 function createRow ( array, wrapperParent ) {
     array.forEach( ({ name, price, key }) => {
         const tr = document.createElement('tr');
-        tr.classList.add( 'text-orange-400','font-bold','border-b','dark:bg-gray-800','dark:border-gray-700' );
+        tr.classList.add( 'text-orange-400','font-bold','border-b','bg-gray-800','border-gray-700' );
         tr.dataset.key = key;
         const tdName = drawDefault( name );
         const tdQuantity = drawInput( "text" );
