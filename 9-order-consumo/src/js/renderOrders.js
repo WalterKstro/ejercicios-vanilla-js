@@ -34,7 +34,7 @@ function insertListItem( array, wrapperParent ) {
 
 function createListItem(key, { name }) {
     const listItem = document.createElement('li');
-    listItem.classList.add( 'item-order','py-2','px-6','cursor-pointer','hover:bg-amber-500','hover:text-gray-800','flex','justify-between','text-orange-500','font-bold','border-b','dark:border-gray-700' );
+    listItem.classList.add( 'item-order','py-2','px-6','cursor-pointer','hover:bg-amber-500','hover:text-gray-800','flex','justify-between','text-gray-200','font-bold','border-b','dark:border-gray-700' );
     listItem.dataset.key = key; 
     listItem.dataset.micromodalTrigger = "modal";
     listItem.innerHTML = `${key}  (${name})`;

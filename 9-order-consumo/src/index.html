@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/output.css">
   <link rel="stylesheet" href="css/tingle.min.css">
   <title>App consumo</title>
 </head>
-<body class="relative">
+<body>
 
-  <header class="header bg-amber-500">
-    <div class="container mx-auto flex  justify-between items-center  align-center h-14">
+  <header class="bg-slate-100">
+    <div class="container mx-auto p-4">
       <div class="brand">
         <img src="assets/brand-darken.svg" alt="brand web developer">
       </div>
@@ -20,31 +19,33 @@
 
   </header>
   
-  <main class="main container mx-auto grid grid-cols-3 grid-rows-3 gap-4">
-    <div class="info__customer flex flex-col justify-between">
-      <div class="wrapper__info py-4">
-        <input type="text" class="py-2 px-5 text-slate-700 outline-none border-2 border-solid border-gray-800 w-full" placeholder="Nombre cliente" id="customer">
+  <main class="container mx-auto grid grid-cols-2 gap-8 px-4 lg:grid-cols-12">
+    <div class="col-start-1 col-span-2 lg:col-span-5">
+      <div class="py-4">
+        <h1 class="text-2xl">Cliente</h1>
+        <input type="text" class="rounded-lg py-2 px-5 text-slate-700 outline-none border-2 border-solid border-gray-800 w-full" placeholder="Nombre cliente" id="customer">
         <p class="text-sm mt-2 text-gray-400" id="date"></p>
         <p class="text-2xl font-bold text-right">Total: <span id="bill">0</span></p>
       </div>
-      <button class="px-4 py-2 font-bold text-sm bg-gray-800 text-white self-end" id="send-order">Enviar orden</button>
+      <button class="px-4 py-2 font-bold text-sm bg-gray-800 text-white self-end rounded-lg" id="send-order">Enviar orden</button>
     </div>
-    <div class="col-span-1 row-start-2 row-span-2  text-orange-50">
+    <div class="col-start-1 col-span-2 lg:col-span-7">
+      <h1 class="text-2xl">Ordenes</h1>
       <form id="search-form">
-        <input type="text" name="search" class="w-full px-4 py-2 border-2 border-gray-800 focus:outline-none text-slate-700" id="search" placeholder="Buscar por nombre...">
+        <input type="text" name="search" class="rounded-lg mb-2 w-full px-4 py-2 border-2 border-gray-800 focus:outline-none text-slate-700" id="search" placeholder="Buscar por nombre...">
       </form>
       <ol id="list-orders" class="list__orders overflow-y-auto bg-gray-800"></ol>
     </div>
-    <div class="col-start-2 col-end-4  row-start-1 row-span-3 h-full overflow-hidden" id="tabs">
-      <nav class="nav flex justify-evenly divide-x-2" id="nav">
+    <div class="col-start-1 col-span-2 lg:col-span-12" id="tabs">
+      <h1 class="text-2xl">Menu</h1>
+      <nav class="nav flex justify-evenly divide-x-2 bg-gray-800" id="nav">
         <a href="#" 
             class="
                 tab__link 
                 grow 
                 py-3 
-                text-center 
-                hover:bg-gray-800 
-                text-orange-400 
+                text-center
+                text-gray-200
                 font-bold
                 active__link">Platos</a>
         <a href="#" 
@@ -53,8 +54,7 @@
                 grow 
                 py-3 
                 text-center 
-                hover:bg-gray-800 
-                text-orange-500 
+                text-gray-200
                 font-bold
                 disabled__link">Bebidas</a>
         <a href="#" 
@@ -63,28 +63,27 @@
                 grow 
                 py-3 
                 text-center 
-                hover:bg-gray-800 
-                text-orange-500 
+                text-gray-200
                 font-bold
                 disabled__link">Postres</a>
       </nav>
-      <section class="wrapper__tabs relative">
+      <section class=" relative">
 
-          <article class="absolute w-full tab__content active__tab" id="platos">
+          <article class="absolute w-full tab__content active__tab overflow-auto" id="platos">
             <table class="table plates table-auto w-full text-sm text-left">
                 <thead class="text-xs text-gray-400 uppercase bg-gray-700 ">
                   <tr>
                     <th scope="col" class="px-6 py-3">Nombre</th>
                     <th scope="col" class="px-6 py-3">Cantidad</th>
                     <th scope="col" class="px-6 py-3">Precio</th>
-                    <th scope="col" class="px-6 py-3"></th>
+                    <th scope="col" class="px-6 py-3">¿Agregar?</th>
                   </tr>
                 </thead>
                 <tbody id="tbody_plates"></tbody>
             </table>
           </article>
 
-          <article class="absolute w-full tab__content disabled__tab" id="bebidas">
+          <article class="absolute w-full tab__content disabled__tab overflow-auto" id="bebidas">
             <table class="table plates table-auto w-full text-sm text-left">
                 <thead class="text-xs text-gray-400 uppercase bg-gray-700 ">
                   <tr>
@@ -99,7 +98,7 @@
             </table>
           </article>
 
-          <article class="absolute w-full tab__content disabled__tab" id="postres">
+          <article class="absolute w-full tab__content disabled__tab overflow-auto" id="postres">
             <table class="table plates table-auto w-full text-sm text-left ">
                 <thead class="text-xs text-gray-400 uppercase bg-gray-700 ">
                   <tr>

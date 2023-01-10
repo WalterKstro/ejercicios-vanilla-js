@@ -24,11 +24,10 @@ let global = {
     }
 };
 
-const [ plates, drinks, desserts] = Array.from( document.querySelectorAll('tbody') );
-const buttonSendOrder = document.querySelector('#send-order');
-const inputCustomer = document.querySelector('#customer');
-const listOrders = document.querySelector('#list-orders');
-
+const [ plates, drinks, desserts]   =   Array.from( document.querySelectorAll('tbody') );
+const buttonSendOrder               =   document.querySelector('#send-order');
+const inputCustomer                 =   document.querySelector('#customer');
+const listOrders                    =   document.querySelector('#list-orders');
 
 
 function executeAddEventListenerOrder () {

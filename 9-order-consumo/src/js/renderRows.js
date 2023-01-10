@@ -4,9 +4,9 @@ import { requestGet } from "./requests.js";
 
 const requests = async () => {
     return await Promise.all( [
-        requestGet( 'menu/plates' ),
-        requestGet( 'menu/drinks' ),
-        requestGet( 'menu/desserts' ),
+        requestGet( 'plates' ),
+        requestGet( 'drinks' ),
+        requestGet( 'desserts' ),
     ]);
 }
 
@@ -26,7 +26,7 @@ export const renderRows = async () => {
 function createRow ( array, wrapperParent ) {
     array.forEach( ({ name, price, key }) => {
         const tr = document.createElement('tr');
-        tr.classList.add( 'text-orange-400','font-bold','border-b','bg-gray-800','border-gray-700' );
+        tr.classList.add( 'text-gray-200','font-bold','border-b','bg-gray-800','border-gray-700' );
         tr.dataset.key = key;
         const tdName = drawDefault( name );
         const tdQuantity = drawInput( "text" );
@@ -50,7 +50,7 @@ function drawInput( type ) {
     const input = document.createElement('input');
     input.type = type;
     
-    ( type === 'text' ) && input.classList.add( 'py-2','px-5','text-slate-700','outline-none' );
+    ( type === 'text' ) && input.classList.add( 'py-2','px-5','text-slate-700','outline-none','rounded-lg' );
     
     td.append( input );
     return td;

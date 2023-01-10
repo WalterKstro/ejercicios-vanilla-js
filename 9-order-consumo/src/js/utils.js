@@ -40,8 +40,9 @@ function splitObjectToArray ( object ) {
 }
 
 function clearFields() {
-    const listTextInput = Array.from( document.querySelectorAll('input[type="text"]') );
-    const listCheckbox = Array.from( document.querySelectorAll('input[type="checkbox"]') );
+    const listTextInput     =   Array.from( document.querySelectorAll('input[type="text"]') );
+    const listCheckbox      =   Array.from( document.querySelectorAll('input[type="checkbox"]') );
+    const totalBill         =   document.querySelector('#bill');
 
     [...listTextInput, ...listCheckbox].flat().forEach( input => {
         if( input.type == "text" ){
@@ -51,6 +52,8 @@ function clearFields() {
             input.checked = false;
         }
     } );
+    
+    totalBill.textContent = 0;
 
 }
 

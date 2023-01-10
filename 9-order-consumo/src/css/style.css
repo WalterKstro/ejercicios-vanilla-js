@@ -1,10 +1,3 @@
-@import url( 'output.css' );
-.main{
-  min-height: calc(100vh - 56px);
-  height: 100%;
-}
-
-
 /* STYLES OF TABS */
 .tab__content{
   transition:all .4s;
@@ -20,7 +13,7 @@
   transition-delay:.1s;
   transform:translateX(-100%);
 }
-.active__link {background-color:#3c1053;}
+.active__link {background-color:rgb(55, 65, 81)}
 .disabled__link {background-color:transparent;}
 
 
@@ -104,7 +97,3 @@
   will-change: transform;
 }
 
-.list__orders{
-  height: calc(400px - 30px);
-  overflow-y: auto;
-}
